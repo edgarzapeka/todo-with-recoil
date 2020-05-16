@@ -1,9 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { useRecoilState, atom } from "recoil";
 import List from "@material-ui/core/List";
 import { TodoItem, TodoInput } from "./components";
+import Container from "@material-ui/core/Container";
 
 const todosState = atom({
   key: "todoState",
@@ -27,13 +26,15 @@ function App() {
   const [todos, setTodos] = useRecoilState(todosState);
 
   return (
-    <div className="App">
-      <List>
-        {todos.map((todo) => (
-          <TodoItem key={todo.id} text={todo.text} />
-        ))}
-      </List>
-      <TodoInput setTodos={setTodos} />
+    <div className="wrapper">
+      <div className="content">
+        <List>
+          {todos.map((todo) => (
+            <TodoItem key={todo.id} text={todo.text} />
+          ))}
+        </List>
+        <TodoInput setTodos={setTodos} />
+      </div>
     </div>
   );
 }

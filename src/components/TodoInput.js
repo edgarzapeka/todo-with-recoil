@@ -15,7 +15,7 @@ const getNextId = (todosState) => {
 export const TodoInput = ({ setTodos }) => {
   const [text, setText] = useState("");
   return (
-    <div>
+    <div className="form-wrapper">
       <TextField
         label="Enter todo text..."
         value={text}
