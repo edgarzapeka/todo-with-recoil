@@ -28,4 +28,18 @@ code {
 .form-wrapper {
   display: flex;
   flex-direction: column;
+  padding-top: 1em;
+}
+
+.todo-title {
+  padding-bottom: 1em;
+}
+
+.todo-list {
+  padding: 2em;
+  min-width: 600px;
+}
+
+.todo-item {
+  margin-bottom: 1em;
 }

@@ -2,7 +2,8 @@ import React from "react";
 import { useRecoilState, atom } from "recoil";
 import List from "@material-ui/core/List";
 import { TodoItem, TodoInput } from "./components";
-import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import { Typography } from "@material-ui/core";
 
 const todosState = atom({
   key: "todoState",
@@ -28,12 +29,15 @@ function App() {
   return (
     <div className="wrapper">
       <div className="content">
-        <List>
+        <Paper elevation={4} className="todo-list">
+          <Typography variant="h3" align="center" className="todo-title">
+            Todo List:
+          </Typography>
           {todos.map((todo) => (
             <TodoItem key={todo.id} text={todo.text} />
           ))}
-        </List>
-        <TodoInput setTodos={setTodos} />
+          <TodoInput setTodos={setTodos} />
+        </Paper>
       </div>
     </div>
   );
