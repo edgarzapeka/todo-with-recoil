@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { useRecoilState, atom } from "recoil";
+import List from "@material-ui/core/List";
+import { TodoItem, TodoInput } from "./components";
+
+const todosState = atom({
+  key: "todoState",
+  default: [
+    {
+      id: 1,
+      text: "hello",
+    },
+    {
+      id: 2,
+      text: "hi",
+    },
+    {
+      id: 3,
+      text: "bonjour",
+    },
+  ],
+});
 
 function App() {
+  const [todos, setTodos] = useRecoilState(todosState);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <List>
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} text={todo.text} />
+        ))}
+      </List>
+      <TodoInput setTodos={setTodos} />
     </div>
   );
 }
