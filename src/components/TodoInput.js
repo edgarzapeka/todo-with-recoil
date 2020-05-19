@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
-const getNextId = (todosState) => {
-  let id = 0;
-  todosState.forEach((t) => {
-    if (t.id > id) {
-      id = t.id;
-    }
-  });
-  return id + 1;
-};
+import { Storage } from "../storage";
 
 export const TodoInput = ({ setTodos }) => {
   const [text, setText] = useState("");
@@ -23,12 +14,11 @@ export const TodoInput = ({ setTodos }) => {
       />
       <Button
         color="primary"
-        onClick={() =>
-          setTodos((prevState) => [
-            ...prevState,
-            { id: getNextId(prevState), text },
-          ])
-        }
+        onClick={() => {
+          const newTodos = Storage.set({ text });
+          setTodos(newTodos);
+          setText("");
+        }}
       >
         Save
       </Button>

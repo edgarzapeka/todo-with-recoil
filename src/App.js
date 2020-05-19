@@ -3,27 +3,18 @@ import { useRecoilState, atom } from "recoil";
 import { TodoItem, TodoInput } from "./components";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
+import { Storage } from "./storage";
 
-const todosState = atom({
-  key: "todoState",
-  default: [
-    {
-      id: 1,
-      text: "hello",
-    },
-    {
-      id: 2,
-      text: "hi",
-    },
-    {
-      id: 3,
-      text: "bonjour",
-    },
-  ],
-});
+const generateInitialTodoState = (todos) =>
+  atom({
+    key: "todoState",
+    default: todos,
+  });
 
 function App() {
-  const [todos, setTodos] = useRecoilState(todosState);
+  const [todos, setTodos] = useRecoilState(
+    generateInitialTodoState(Storage.get())
+  );
 
   return (
     <div className="wrapper">
