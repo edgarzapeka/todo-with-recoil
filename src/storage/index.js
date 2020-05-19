@@ -21,4 +21,7 @@ export const Storage = {
     localStorage.setItem(todo_key, JSON.stringify(updatedVals));
     return updatedVals;
   },
+  clear: () => {
+    localStorage.setItem(todo_key, JSON.stringify([]));
+  },
 };
