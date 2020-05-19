@@ -7,6 +7,7 @@ import { Storage } from "./storage";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import { TodoList } from "./components/TodoList";
 
 const useStyles = makeStyles({
   wrapperHeader: {
@@ -52,9 +53,7 @@ function App() {
               </Button>
             )}
           </Grid>
-          {todos.map((todo) => (
-            <TodoItem key={todo.id} text={todo.text} />
-          ))}
+          <TodoList todos={todos} />
           <TodoInput setTodos={setTodos} />
         </Paper>
       </div>
