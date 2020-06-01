@@ -1,8 +1,6 @@
 ## Todo App which is using Recoil for state managment
 
-In the project directory, you can run:
-
-[Recoil](https://github.com/facebookexperimental/Recoil)
+[Recoil repo](https://github.com/facebookexperimental/Recoil)
 
 ### Libraries used
 
