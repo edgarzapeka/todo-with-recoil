@@ -13,10 +13,10 @@ const getNextId = (todosState) => {
 export const Storage = {
   get: () => {
     const vals = JSON.parse(localStorage.getItem(todo_key));
-    return vals;
+    return vals ?? [];
   },
   set: (item) => {
-    const vals = JSON.parse(localStorage.getItem(todo_key));
+    const vals = JSON.parse(localStorage.getItem(todo_key)) ?? [];
     const updatedVals = [...vals, { id: getNextId(vals), text: item.text }];
     localStorage.setItem(todo_key, JSON.stringify(updatedVals));
     return updatedVals;

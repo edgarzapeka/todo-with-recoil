@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, atom } from "recoil";
-import { TodoItem, TodoInput } from "./components";
+import { TodoInput } from "./components";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
 import { Storage } from "./storage";

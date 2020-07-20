@@ -20,7 +20,7 @@ export const TodoList = ({ todos }) => {
     <Grid className={todoItemsWrapper}>
       {todos.length === 0 ? (
         <Typography variant="h6" className={noTodoItems}>
-          There are no items yet 😢
+          There are no items yet <span role="img">😢</span>
         </Typography>
       ) : (
         todos.map((todo) => <TodoItem key={todo.id} text={todo.text} />)
