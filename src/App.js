@@ -53,7 +53,7 @@ function App() {
               </Button>
             )}
           </Grid>
-          <TodoList todos={todos} />
+          <TodoList todos={todos} setTodos={setTodos}/>
           <TodoInput setTodos={setTodos} />
         </Paper>
       </div>

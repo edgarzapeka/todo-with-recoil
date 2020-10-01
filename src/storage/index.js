@@ -21,6 +21,12 @@ export const Storage = {
     localStorage.setItem(todo_key, JSON.stringify(updatedVals));
     return updatedVals;
   },
+  delete: (item) => {
+    const vals = JSON.parse(localStorage.getItem(todo_key));
+    const updaedVals = vals.filter(val => val.id !== item.id)
+    localStorage.setItem(todo_key, JSON.stringify(updaedVals))
+    return updaedVals
+  },
   clear: () => {
     localStorage.setItem(todo_key, JSON.stringify([]));
   },

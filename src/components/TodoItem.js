@@ -1,15 +1,26 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Fade from "@material-ui/core/Fade";
+import { IconButton, Fade, Typography, CardContent, Card, makeStyles } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { Storage } from '../storage'
 
-export const TodoItem = ({ text }) => {
+const useStyles = makeStyles({
+  contentStyle: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
+})
+
+export const TodoItem = ({ todo, setTodos }) => {
+  const { contentStyle } = useStyles()
   return (
     <Fade in={true}>
       <Card raised className="todo-item">
-        <CardContent>
-          <Typography>{text}</Typography>
+        <CardContent className={contentStyle}>
+          <Typography>{todo.text}</Typography>
+          <IconButton area-label="delete" onClick={() => setTodos(Storage.delete(todo.id))}>
+            <DeleteIcon/>
+          </IconButton>
         </CardContent>
       </Card>
     </Fade>

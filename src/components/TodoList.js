@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const TodoList = ({ todos }) => {
+export const TodoList = ({ todos, setTodos }) => {
   const { todoItemsWrapper, noTodoItems } = useStyles();
   return (
     <Grid className={todoItemsWrapper}>
@@ -23,7 +23,7 @@ export const TodoList = ({ todos }) => {
           There are no items yet <span role="img">😢</span>
         </Typography>
       ) : (
-        todos.map((todo) => <TodoItem key={todo.id} text={todo.text} />)
+        todos.map((todo) => <TodoItem key={todo.id} todo={todo} setTodos={setTodos}/>)
       )}
     </Grid>
   );
